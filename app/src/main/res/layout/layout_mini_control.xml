@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/layout_mini_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorGray">
+
+        <ImageView
+            android:id="@+id/image_mini_control_track"
+            android:layout_width="@dimen/dp_70"
+            android:layout_height="@dimen/dp_70"
+            android:layout_alignParentLeft="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/img1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_toRightOf="@id/image_mini_control_track"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_mini_control_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_all_music_title"
+                android:textSize="@dimen/sp_20" />
+
+            <TextView
+                android:id="@+id/text_mini_control_artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_all_music_artist"
+                android:textSize="@dimen/sp_16" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/button_mini_control_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_8"
+            android:background="@null"
+            android:src="@drawable/ic_skip_next_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/button_mini_control_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_8"
+            android:layout_toLeftOf="@id/button_mini_control_next"
+            android:background="@null"
+            android:src="@drawable/ic_play_arrow_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/button_mini_control_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_8"
+            android:layout_toLeftOf="@id/button_mini_control_play"
+            android:background="@null"
+            android:src="@drawable/ic_skip_previous_black_24dp" />
+
+    </RelativeLayout>
+</LinearLayout>
