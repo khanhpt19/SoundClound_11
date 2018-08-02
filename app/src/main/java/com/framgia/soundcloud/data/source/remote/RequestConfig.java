@@ -39,7 +39,8 @@ public final class RequestConfig {
     }
 
     public static String genUrlStreamTrack(long id) {
-        return BASE_URL_TRACK + "/" + id + "/" + RequestConfig.NAME_STREAM;
+        return BASE_URL_TRACK + "/" + id + "/" + RequestConfig.NAME_STREAM + "?" + ARGS_CLIENT_ID +
+                BuildConfig.API_KEY;
     }
 
     public static final class HttpRequestMethod {
