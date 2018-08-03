@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        replaceFragment(new MainFragment(), false);
+        replaceFragment(MainFragment.newInstance(), false);
     }
 
     public void replaceFragment(Fragment fragment, boolean isAddToBackStack) {
