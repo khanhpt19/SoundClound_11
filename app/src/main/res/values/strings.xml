@@ -1,16 +1,19 @@
 <resources>
     <string name="app_name">SoundCloud</string>
-    <string name="text_all_music">All music</string>
-    <string name="text_all_album">All album</string>
-    <string name="text_all_audio">All audio</string>
-    <string name="text_alternativerock">Alternativerock</string>
-    <string name="text_ambient">Ambient</string>
-    <string name="text_classical">Classical</string>
-    <string name="text_country">Country</string>
+    <string name="title_all_music">All music</string>
+    <string name="title_all_album">All album</string>
+    <string name="title_all_audio">All audio</string>
+    <string name="title_alternativerock">Alternativerock</string>
+    <string name="title_ambient">Ambient</string>
+    <string name="title_classical">Classical</string>
+    <string name="title_country">Country</string>
     <string name="text_all_music_title">Faded</string>
     <string name="text_all_music_artist">Alan</string>
     <string name="text_all_music_playback_count">123</string>
     <string name="menu_search">Search</string>
     <string name="title_home">Home</string>
     <string name="title_my_music">My music</string>
+    <string name="text_more">More</string>
+    <string name="text_log_start">Start</string>
+    <string name="text_log_success">Successed</string>
 </resources>
