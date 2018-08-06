@@ -96,7 +96,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final class TrackEntry implements BaseColumns {
 
         public static final String TABLE_NAME = "track";
-        public static final String COLUMN_NAME_ID = "track_id";
+        public static final String COLUMN_NAME_ID = "id";
         public static final String COLUMN_NAME_TITLE = "title";
         public static final String COLUMN_NAME_DURATION = "duration";
         public static final String COLUMN_NAME_ARTWORK_URL = "artwork_url";
