@@ -11,6 +11,11 @@ import android.view.ViewGroup;
 import com.framgia.soundcloud.R;
 
 public class MyMusicFragment extends Fragment {
+
+    public static Fragment newInstance(){
+        MyMusicFragment myMusicFragment = new MyMusicFragment();
+        return myMusicFragment;
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,

@@ -16,6 +16,10 @@ import com.framgia.soundcloud.screen.mymusic.MyMusicFragment;
 
 public class MainFragment extends Fragment {
 
+    public static Fragment newInstance(){
+        MainFragment mainFragment = new MainFragment();
+        return mainFragment;
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -31,8 +35,8 @@ public class MainFragment extends Fragment {
         TabLayout tabLayout = view.findViewById(R.id.tab_layout);
         MainViewPagerAdapter mainViewPagerAdapter =
                 new MainViewPagerAdapter(getChildFragmentManager());
-        mainViewPagerAdapter.addFragment(new HomeFragment(), getString(R.string.title_home));
-        mainViewPagerAdapter.addFragment(new MyMusicFragment(), getString(R.string.title_my_music));
+        mainViewPagerAdapter.addFragment(HomeFragment.newInstance(), getString(R.string.title_home));
+        mainViewPagerAdapter.addFragment(MyMusicFragment.newInstance(), getString(R.string.title_my_music));
         viewpager.setAdapter(mainViewPagerAdapter);
         tabLayout.setupWithViewPager(viewpager);
     }
