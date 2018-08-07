@@ -2,7 +2,6 @@ package com.framgia.soundcloud.service;
 
 import android.app.Service;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -13,7 +12,6 @@ import com.framgia.soundcloud.mediaplayer.BaseMediaPlayer;
 import com.framgia.soundcloud.mediaplayer.MediaPlayerManager;
 import com.framgia.soundcloud.mediaplayer.MediaPlayerSetting;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -123,6 +121,14 @@ public class TrackService extends Service {
 
     public void setLoop(@MediaPlayerSetting.LoopType int loopType) {
         mMediaPlayerManager.setLoopType(loopType);
+    }
+
+    public void changePlayPauseStatus() {
+        if (getStatusMedia() == BaseMediaPlayer.StatusPlayerType.PAUSE) {
+            start();
+        } else {
+            pause();
+        }
     }
 
     public int getStatusMedia() {

@@ -1,5 +1,6 @@
 package com.framgia.soundcloud.screen.home;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,6 +20,7 @@ import com.framgia.soundcloud.data.model.Track;
 import com.framgia.soundcloud.data.repository.TrackRepository;
 import com.framgia.soundcloud.data.source.local.TrackLocalDataSource;
 import com.framgia.soundcloud.data.source.remote.TrackRemoteDataSource;
+import com.framgia.soundcloud.screen.main.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +30,19 @@ public class HomeFragment extends Fragment implements LoadMusicContract.View, It
     private LoadMusicContract.Presenter mMusicPresenter;
     private RecyclerView mRecyclerMain;
     private List<Album> mAlbums = new ArrayList<>();
+    private PlayTrackListener mPlayTrackListener;
 
     public static Fragment newInstance() {
         HomeFragment homeFragment = new HomeFragment();
         return homeFragment;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (getActivity() instanceof PlayTrackListener) {
+            mPlayTrackListener = (PlayTrackListener) getActivity();
+        }
     }
 
     @Nullable
@@ -50,6 +61,12 @@ public class HomeFragment extends Fragment implements LoadMusicContract.View, It
                 LinearLayoutManager.VERTICAL, false);
         mRecyclerMain.setLayoutManager(layoutManager);
         loadAllAlbum();
+    }
+
+    @Override
+    public void onDestroyView() {
+        mPlayTrackListener = null;
+        super.onDestroyView();
     }
 
     private void loadAllAlbum() {
@@ -120,6 +137,11 @@ public class HomeFragment extends Fragment implements LoadMusicContract.View, It
 
     @Override
     public void onItemClick(int index, int trackPosition) {
+        mPlayTrackListener.play(mAlbums.get(index).getTracks(), trackPosition);
+    }
 
+    public interface PlayTrackListener {
+
+        void play(List<Track> tracks, int trackPosition);
     }
 }
