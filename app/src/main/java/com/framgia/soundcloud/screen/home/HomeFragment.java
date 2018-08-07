@@ -104,12 +104,12 @@ public class HomeFragment extends Fragment implements LoadMusicContract.View, It
 
     @Override
     public void startLoadingMusic() {
-        Log.d(TAG, getString(R.string.text_log_start));
+
     }
 
     @Override
     public void loadMusicSuccess() {
-        Log.d(TAG, getString(R.string.text_log_success));
+
     }
 
     @Override
@@ -120,8 +120,6 @@ public class HomeFragment extends Fragment implements LoadMusicContract.View, It
 
     @Override
     public void onItemClick(int index, int trackPosition) {
-        Toast.makeText(getActivity(), ""+index, Toast.LENGTH_SHORT).show();
-        Log.d(TAG, mAlbums.get(index).getTracks().size() + "");
-        Log.d(TAG, trackPosition + "");
+
     }
 }
