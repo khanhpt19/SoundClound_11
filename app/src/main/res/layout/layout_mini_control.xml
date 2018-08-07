@@ -10,8 +10,7 @@
         android:id="@+id/image_track"
         android:layout_width="@dimen/dp_60"
         android:layout_height="@dimen/dp_60"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img1"/>
+        android:scaleType="centerCrop"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

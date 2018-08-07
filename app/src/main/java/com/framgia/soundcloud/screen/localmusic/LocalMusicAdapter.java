@@ -44,7 +44,7 @@ public class LocalMusicAdapter extends RecyclerView.Adapter<LocalMusicAdapter.Vi
             textTitleItemLocalMusic.setText(track.getTitle());
             textArtistItemLocalMusic.setText(track.getArtist());
             RequestOptions requestOptions = new RequestOptions();
-            requestOptions.placeholder(R.drawable.img1);
+            requestOptions.placeholder(R.drawable.default_error_image_track);
             requestOptions.error(R.drawable.default_error_image_track);
             Glide.with(itemView.getContext())
                     .setDefaultRequestOptions(requestOptions)
