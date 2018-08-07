@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.framgia.soundcloud.R;
 import com.framgia.soundcloud.screen.home.HomeFragment;
-import com.framgia.soundcloud.screen.mymusic.MyMusicFragment;
+import com.framgia.soundcloud.screen.localmusic.LocalMusicFragment;
 
 public class MainFragment extends Fragment {
 
@@ -36,7 +36,7 @@ public class MainFragment extends Fragment {
         MainViewPagerAdapter mainViewPagerAdapter =
                 new MainViewPagerAdapter(getChildFragmentManager());
         mainViewPagerAdapter.addFragment(HomeFragment.newInstance(), getString(R.string.title_home));
-        mainViewPagerAdapter.addFragment(MyMusicFragment.newInstance(), getString(R.string.title_my_music));
+        mainViewPagerAdapter.addFragment(LocalMusicFragment.newInstance(), getString(R.string.title_my_music));
         viewpager.setAdapter(mainViewPagerAdapter);
         tabLayout.setupWithViewPager(viewpager);
     }
