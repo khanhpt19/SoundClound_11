@@ -7,11 +7,24 @@
     android:layout_height="match_parent"
     tools:openDrawer="start">
 
-    <FrameLayout
-        android:id="@+id/frame_container"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"/>
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:id="@+id/frame_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linear_player"
+            android:fitsSystemWindows="true"/>
+        <LinearLayout
+            android:id="@+id/linear_mini_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone">
+            <include layout="@layout/layout_mini_control" />
+        </LinearLayout>
+    </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
