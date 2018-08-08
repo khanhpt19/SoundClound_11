@@ -43,7 +43,7 @@ public class MediaPlayerSetting {
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({ShuffleType.ON, ShuffleType.OFF})
     public @interface ShuffleType {
-        int ON = 0;
-        int OFF = 1;
+        int OFF = 0;
+        int ON = 1;
     }
 }

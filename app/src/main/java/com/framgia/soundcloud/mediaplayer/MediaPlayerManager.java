@@ -262,4 +262,15 @@ public class MediaPlayerManager extends MediaPlayerSetting implements BaseMediaP
     public void removeDescriptionListener(UIPlayerListener.DescriptionListener descriptionListener) {
         mDescriptionListeners.remove(descriptionListener);
     }
+
+    public void updateAllListener() {
+        notifyTrackChanged();
+        notifyStatusChanged(getStatus());
+        notifyTimeChanged();
+        notifySettingChanged();
+    }
+
+    public void updateTimer() {
+        notifyTimeChanged();
+    }
 }
