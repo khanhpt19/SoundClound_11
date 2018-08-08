@@ -22,6 +22,7 @@ import com.framgia.soundcloud.R;
 import com.framgia.soundcloud.UIPlayerListener;
 import com.framgia.soundcloud.data.model.Track;
 import com.framgia.soundcloud.mediaplayer.BaseMediaPlayer;
+import com.framgia.soundcloud.screen.detail.DetailActivity;
 import com.framgia.soundcloud.screen.home.HomeFragment;
 import com.framgia.soundcloud.service.ServiceManager;
 import com.framgia.soundcloud.service.TrackService;
@@ -49,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements UIPlayerListener.
             mTrackService = ((TrackService.TrackBinder) iBinder).getService();
             mTrackService.addControlListener(MainActivity.this);
             mTrackService.addDescriptionListener(MainActivity.this);
+            if (mTrackService.getStatusMedia() != BaseMediaPlayer.StatusPlayerType.IDLE) {
+                mTrackService.updateAll();
+            }
             mBound = true;
         }
 
@@ -84,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements UIPlayerListener.
         if (mTrackService.getStatusMedia() != BaseMediaPlayer.StatusPlayerType.PLAYING) {
             mServiceManager.stopService();
         }
+        mTrackService.removeControlListener(MainActivity.this);
+        mTrackService.removeDescriptionListener(MainActivity.this);
         super.onStop();
     }
 
@@ -137,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements UIPlayerListener.
                 mTrackService.next();
                 break;
             case R.id.linear_mini_player:
-
+                goToDetail();
                 break;
         }
     }
@@ -178,5 +184,10 @@ public class MainActivity extends AppCompatActivity implements UIPlayerListener.
 
     private void playTrack(int position) {
         mTrackService.play(position);
+    }
+
+    private void goToDetail() {
+        Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+        startActivity(intent);
     }
 }

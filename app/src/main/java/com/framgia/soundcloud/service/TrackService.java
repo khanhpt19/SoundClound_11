@@ -119,8 +119,18 @@ public class TrackService extends Service {
         mMediaPlayerManager.setShuffleType(shuffleType);
     }
 
+    @BaseMediaPlayer.StatusPlayerType
+    public int getShuffle() {
+        return mMediaPlayerManager.getShuffleType();
+    }
+
     public void setLoop(@MediaPlayerSetting.LoopType int loopType) {
         mMediaPlayerManager.setLoopType(loopType);
+    }
+
+    @MediaPlayerSetting.LoopType
+    public int getLoop() {
+        return mMediaPlayerManager.getLoopType();
     }
 
     public void changePlayPauseStatus() {
@@ -133,6 +143,14 @@ public class TrackService extends Service {
 
     public int getStatusMedia() {
         return mMediaPlayerManager.getStatus();
+    }
+
+    public void updateAll() {
+        mMediaPlayerManager.updateAllListener();
+    }
+
+    public void updateTimer() {
+        mMediaPlayerManager.updateTimer();
     }
 
     private void handleIntent(Intent intent) {

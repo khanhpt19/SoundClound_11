@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_detail"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="@dimen/dp_4"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:titleTextColor="@android:color/white"
+        app:subtitleTextColor="@android:color/white"/>
 
     <ImageView
         android:id="@+id/image_artwork_background_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"/>
     <View
         android:background="@color/color_silver"
         android:layout_width="match_parent"
@@ -27,17 +29,17 @@
         android:id="@+id/image_artwork_detail"
         android:layout_width="@dimen/dp_200"
         android:layout_height="@dimen/dp_200"
-        android:layout_below="@id/toolbar_detail"
+        android:layout_below="@id/toolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp_50"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/default_error_image_track" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/image_artwork_detail"
-        android:layout_marginTop="@dimen/dp_50"
+        android:layout_above="@+id/linear_timer"
+        android:layout_marginBottom="@dimen/dp_50"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -58,6 +60,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/linear_timer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/layout_control"
@@ -97,7 +100,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/button_shuffle_detail"
+            android:id="@+id/button_shuffle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dp_30"
@@ -105,7 +108,7 @@
             android:src="@drawable/ic_shuffle_none_24dp" />
 
         <ImageButton
-            android:id="@+id/button_previous_detail"
+            android:id="@+id/button_previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dp_30"
@@ -113,7 +116,7 @@
             android:src="@drawable/ic_skip_previous_white_48dp" />
 
         <ImageButton
-            android:id="@+id/button_play_detail"
+            android:id="@+id/button_play_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dp_30"
@@ -121,7 +124,7 @@
             android:src="@drawable/ic_play_arrow_white_48dp" />
 
         <ImageButton
-            android:id="@+id/button_next_detail"
+            android:id="@+id/button_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dp_30"
@@ -129,7 +132,7 @@
             android:src="@drawable/ic_skip_next_white_48dp" />
 
         <ImageButton
-            android:id="@+id/button_loop_detail"
+            android:id="@+id/button_loop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
