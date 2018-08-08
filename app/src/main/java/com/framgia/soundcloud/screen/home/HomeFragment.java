@@ -1,17 +1,16 @@
 package com.framgia.soundcloud.screen.home;
 
 import android.content.Context;
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.framgia.soundcloud.ItemTrackClickListener;
 import com.framgia.soundcloud.R;
@@ -20,13 +19,11 @@ import com.framgia.soundcloud.data.model.Track;
 import com.framgia.soundcloud.data.repository.TrackRepository;
 import com.framgia.soundcloud.data.source.local.TrackLocalDataSource;
 import com.framgia.soundcloud.data.source.remote.TrackRemoteDataSource;
-import com.framgia.soundcloud.screen.main.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment implements LoadMusicContract.View, ItemTrackClickListener {
-    private static final String TAG = "home";
     private LoadMusicContract.Presenter mMusicPresenter;
     private RecyclerView mRecyclerMain;
     private List<Album> mAlbums = new ArrayList<>();

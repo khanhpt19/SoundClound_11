@@ -47,7 +47,7 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.ViewHolder> 
             mTextArtist.setText(track.getArtist());
             mTextPlaybackCount.setText(String.valueOf(track.getPlaybackCount()));
             RequestOptions requestOptions = new RequestOptions();
-            requestOptions.placeholder(R.drawable.img1);
+            requestOptions.placeholder(R.drawable.default_error_image_track);
             requestOptions.error(R.drawable.default_error_image_track);
             Glide.with(itemView.getContext())
                     .setDefaultRequestOptions(requestOptions)

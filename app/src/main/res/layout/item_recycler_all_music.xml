@@ -23,8 +23,7 @@
                 android:id="@+id/image_item_music_track"
                 android:layout_width="@dimen/dp_100"
                 android:layout_height="@dimen/dp_100"
-                android:scaleType="fitXY"
-                android:src="@drawable/img1" />
+                android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/text_item_music_title"
