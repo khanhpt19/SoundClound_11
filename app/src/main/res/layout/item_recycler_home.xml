@@ -36,7 +36,6 @@
                     android:layout_height="wrap_content" />
             </RelativeLayout>
 
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_item_all_album"
                 android:layout_width="match_parent"

@@ -16,4 +16,6 @@
     <string name="text_more">More</string>
     <string name="text_log_start">Start</string>
     <string name="text_log_success">Successed</string>
+    <string name="text_hint_online">Keyword for online</string>
+    <string name="text_hint_local">Keyword for local </string>
 </resources>

@@ -39,6 +39,7 @@ public class DetailActivity extends AppCompatActivity implements UIPlayerListene
      * The time to update track's current time
      */
     private static final int TIME_DELAY = 500;
+
     private ImageButton mButtonPlay;
     private ImageButton mButtonPrevious;
     private ImageButton mButtonNext;
