@@ -39,12 +39,13 @@ public interface BaseMediaPlayer {
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({StatusPlayerType.IDLE, StatusPlayerType.PREPARING, StatusPlayerType.PLAYING,
-            StatusPlayerType.PAUSE, StatusPlayerType.STOP})
+            StatusPlayerType.PAUSE, StatusPlayerType.STOP, StatusPlayerType.RELEASE})
     @interface StatusPlayerType {
         int IDLE = 0;
         int PREPARING = 1;
         int PLAYING = 2;
         int PAUSE = 3;
         int STOP = 4;
+        int RELEASE = 5;
     }
 }

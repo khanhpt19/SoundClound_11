@@ -46,7 +46,7 @@ public class MediaPlayerManager extends MediaPlayerSetting implements BaseMediaP
 
     @Override
     public void initMediaPlayer() {
-        if (mMediaPlayer != null) {
+        if (mMediaPlayer != null && getStatus() != StatusPlayerType.RELEASE) {
             mMediaPlayer.reset();
         } else {
             mMediaPlayer = new MediaPlayer();
@@ -126,6 +126,7 @@ public class MediaPlayerManager extends MediaPlayerSetting implements BaseMediaP
     @Override
     public void release() {
         mMediaPlayer.release();
+        setStatus(StatusPlayerType.RELEASE);
     }
 
     @Override
