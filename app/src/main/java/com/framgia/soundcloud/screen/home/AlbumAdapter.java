@@ -18,32 +18,44 @@ import java.util.List;
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> {
     private List<Album> mAlbums;
     private ItemTrackClickListener mItemTrackClickListener;
+    private MoreClickListener mMoreClickListener;
 
-    public AlbumAdapter(List<Album> albums, ItemTrackClickListener itemTrackClickListener) {
+    public AlbumAdapter(List<Album> albums, ItemTrackClickListener itemTrackClickListener,
+                        MoreClickListener moreClickListener) {
         mAlbums = albums;
         mItemTrackClickListener = itemTrackClickListener;
+        mMoreClickListener = moreClickListener;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView textTitle;
-        private RecyclerView recyclerItemAlbum;
-
-        public ViewHolder(@NonNull View itemView) {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        private TextView mTextTitle;
+        private TextView mTextMore;
+        private RecyclerView mRecyclerItemAlbum;
+        private MoreClickListener mMoreClickListener;
+        public ViewHolder(@NonNull View itemView,MoreClickListener moreClickListener) {
             super(itemView);
-            textTitle = itemView.findViewById(R.id.text_item_all_album);
-            recyclerItemAlbum = itemView.findViewById(R.id.recycler_item_all_album);
+            mMoreClickListener = moreClickListener;
+            mTextTitle = itemView.findViewById(R.id.text_item_all_album);
+            mTextMore = itemView.findViewById(R.id.text_more);
+            mRecyclerItemAlbum = itemView.findViewById(R.id.recycler_item_all_album);
         }
 
         public void bindView(Album album, int i, ItemTrackClickListener itemTrackClickListener) {
-            textTitle.setText(album.getTitle());
+            mTextTitle.setText(album.getTitle());
             List<Track> tracks = album.getTracks();
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(
                     itemView.getContext(),
                     LinearLayoutManager.HORIZONTAL,
                     false
             );
-            recyclerItemAlbum.setLayoutManager(linearLayoutManager);
-            recyclerItemAlbum.setAdapter(new TrackAdapter(tracks, i, itemTrackClickListener));
+            mRecyclerItemAlbum.setLayoutManager(linearLayoutManager);
+            mRecyclerItemAlbum.setAdapter(new TrackAdapter(tracks, i, itemTrackClickListener));
+            mTextMore.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            mMoreClickListener.onItemClick(getLayoutPosition());
         }
     }
 
@@ -52,7 +64,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     public AlbumAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_recycler_home, viewGroup,
                 false);
-        return new ViewHolder(v);
+        return new ViewHolder(v, mMoreClickListener);
     }
 
     @Override
@@ -66,4 +78,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         return mAlbums != null ? mAlbums.size() : 0;
     }
 
+    public interface MoreClickListener {
+        void onItemClick(int position);
+    }
 }

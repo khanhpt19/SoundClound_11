@@ -5,7 +5,7 @@
     android:layout_margin="@dimen/dp_4">
 
     <ImageView
-        android:id="@+id/image_arwork_item_local_music"
+        android:id="@+id/image_arwork"
         android:layout_width="@dimen/dp_60"
         android:layout_height="@dimen/dp_60"
         android:scaleType="fitXY"
@@ -15,18 +15,18 @@
         android:layout_width="@dimen/dp_250"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_8"
-        android:layout_toRightOf="@id/image_arwork_item_local_music"
+        android:layout_toRightOf="@id/image_arwork"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_title_item_local_music"
+            android:id="@+id/text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:textSize="@dimen/sp_16" />
 
         <TextView
-            android:id="@+id/text_artist_item_local_music"
+            android:id="@+id/text_artist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/sp_10"
@@ -34,7 +34,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/image_vert_item_local_music"
+        android:id="@+id/image_vert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
