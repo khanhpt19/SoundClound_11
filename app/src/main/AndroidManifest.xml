@@ -25,12 +25,17 @@
         </activity>
         <activity
             android:name=".screen.detail.DetailActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTop"
+            android:parentActivityName=".screen.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".screen.main.MainActivity"/>
+        </activity>
         <activity
             android:name=".screen.search.SearchActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".screen.main.MainActivity"/>
-
         <service android:name=".service.TrackService" />
     </application>
 </manifest>

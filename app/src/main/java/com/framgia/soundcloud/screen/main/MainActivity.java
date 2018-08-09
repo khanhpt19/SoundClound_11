@@ -15,7 +15,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.framgia.soundcloud.R;
@@ -50,7 +49,9 @@ public class MainActivity extends AppCompatActivity implements UIPlayerListener.
             mTrackService = ((TrackService.TrackBinder) iBinder).getService();
             mTrackService.addControlListener(MainActivity.this);
             mTrackService.addDescriptionListener(MainActivity.this);
-            if (mTrackService.getStatusMedia() != BaseMediaPlayer.StatusPlayerType.IDLE) {
+            if (mTrackService.getStatusMedia() != BaseMediaPlayer.StatusPlayerType.IDLE &&
+                    mTrackService.getStatusMedia() != BaseMediaPlayer.StatusPlayerType.RELEASE) {
+                mLinearLayoutPlayer.setVisibility(View.VISIBLE);
                 mTrackService.updateAll();
             }
             mBound = true;
@@ -84,13 +85,18 @@ public class MainActivity extends AppCompatActivity implements UIPlayerListener.
 
     @Override
     protected void onStop() {
+        mTrackService.removeControlListener(MainActivity.this);
+        mTrackService.removeDescriptionListener(MainActivity.this);
         mServiceManager.unbindService();
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
         if (mTrackService.getStatusMedia() != BaseMediaPlayer.StatusPlayerType.PLAYING) {
             mServiceManager.stopService();
         }
-        mTrackService.removeControlListener(MainActivity.this);
-        mTrackService.removeDescriptionListener(MainActivity.this);
-        super.onStop();
+        super.onDestroy();
     }
 
     @Override
