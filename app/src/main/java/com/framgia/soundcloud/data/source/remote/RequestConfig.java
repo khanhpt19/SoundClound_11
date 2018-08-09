@@ -35,7 +35,8 @@ public final class RequestConfig {
     }
 
     public static String genUrlSearchTrack(int limit, int offset, String title) {
-        return BASE_URL_TRACK + "?" + ARGS_CLIENT_ID + BuildConfig.API_KEY + ARGS_SEARCH + title;
+        return BASE_URL_TRACK + "?" + ARGS_CLIENT_ID + BuildConfig.API_KEY + ARGS_SEARCH + title +
+                ARGS_LIMIT + limit + ARGS_OFFSET + offset;
     }
 
     public static String genUrlStreamTrack(long id) {
