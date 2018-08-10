@@ -2,23 +2,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_search"
+        android:id="@+id/action_clear"
         android:orderInCategory="200"
-        android:title="Search"
-        android:icon="@drawable/ic_search_white_24dp"
+        android:title="@string/menu_action_clear"
+        android:icon="@drawable/ic_close_white_24dp"
         app:showAsAction="always"/>
 
     <group>
         <item
             android:id="@+id/action_search_online"
             android:orderInCategory="200"
-            android:title="Search online"
+            android:title="@string/menu_action_search_online"
             android:icon="@drawable/ic_search_white_24dp"
             app:showAsAction="never"/>
         <item
             android:id="@+id/action_search_local"
             android:orderInCategory="200"
-            android:title="Search local"
+            android:title="@string/menu_action_search_offline"
             android:icon="@drawable/ic_search_white_24dp"
             app:showAsAction="never"/>
     </group>

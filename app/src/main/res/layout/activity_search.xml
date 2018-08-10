@@ -26,9 +26,23 @@
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_track"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_track"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linear_mini_player"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+        <LinearLayout
+            android:id="@+id/linear_mini_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone">
+            <include layout="@layout/layout_mini_control" />
+        </LinearLayout>
+    </RelativeLayout>
+
 </LinearLayout>
