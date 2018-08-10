@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.framgia.soundcloud.R;
 import com.framgia.soundcloud.UIPlayerListener;
 import com.framgia.soundcloud.data.model.Track;
@@ -187,6 +188,9 @@ public class TracksActivity extends AppCompatActivity implements
     public void onTrackChanged(Track track) {
         Glide.with(getApplicationContext())
                 .load(track.getArtWorkUrl())
+                .apply(new RequestOptions()
+                        .placeholder(R.drawable.default_error_image_track)
+                        .error(R.drawable.default_error_image_track))
                 .into(mImageViewTrack);
         mTextViewTitle.setText(track.getTitle());
         mTextViewArtist.setText(track.getArtist());

@@ -4,12 +4,12 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.framgia.soundcloud.R;
 import com.framgia.soundcloud.UIPlayerListener;
 import com.framgia.soundcloud.data.model.Track;
@@ -131,6 +132,9 @@ public class MainActivity extends AppCompatActivity implements UIPlayerListener.
     public void onTrackChanged(Track track) {
         Glide.with(getApplicationContext())
                 .load(track.getArtWorkUrl())
+                .apply(new RequestOptions()
+                        .placeholder(R.drawable.default_error_image_track)
+                        .error(R.drawable.default_error_image_track))
                 .into(mImageViewTrack);
         mTextViewTitle.setText(track.getTitle());
         mTextViewArtist.setText(track.getArtist());
