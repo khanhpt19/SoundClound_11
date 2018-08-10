@@ -2,6 +2,7 @@ package com.framgia.soundcloud.data.source.remote;
 
 import com.framgia.soundcloud.data.model.Track;
 import com.framgia.soundcloud.data.source.TrackDataSource;
+import com.framgia.soundcloud.util.StringUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,6 +23,9 @@ public class SearchTrackAsyncTask extends BaseAsyncTask<List<Track>> {
     @Override
     protected List<Track> genData(String response) {
         List<Track> tracks = new ArrayList<>();
+        if (StringUtil.isEmpty(response)) {
+            return tracks;
+        }
         try {
             JSONArray array = new JSONArray(response);
             for (int i = 0; i < array.length(); i++) {

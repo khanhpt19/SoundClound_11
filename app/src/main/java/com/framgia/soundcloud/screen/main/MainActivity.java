@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements UIPlayerListener.
                     mTrackService.getStatusMedia() != BaseMediaPlayer.StatusPlayerType.RELEASE) {
                 mLinearLayoutPlayer.setVisibility(View.VISIBLE);
                 mTrackService.updateAll();
-                mLinearLayoutPlayer.setVisibility(View.VISIBLE);
             }
             mBound = true;
         }
