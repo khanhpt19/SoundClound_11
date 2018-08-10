@@ -11,31 +11,17 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/text_search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:singleLine="true" />
-        </LinearLayout>
-    </android.support.v7.widget.Toolbar>
+        app:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view_track"
+            android:id="@+id/recycler_view_more"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/linear_mini_player"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+            android:layout_above="@id/linear_mini_player" />
 
         <LinearLayout
             android:id="@+id/linear_mini_player"
@@ -47,4 +33,5 @@
             <include layout="@layout/layout_mini_control" />
         </LinearLayout>
     </RelativeLayout>
+
 </LinearLayout>

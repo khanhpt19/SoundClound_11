@@ -25,17 +25,21 @@
         </activity>
         <activity
             android:name=".screen.detail.DetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleTop"
-            android:parentActivityName=".screen.main.MainActivity">
+            android:parentActivityName=".screen.main.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".screen.main.MainActivity"/>
+                android:value=".screen.main.MainActivity" />
         </activity>
         <activity
             android:name=".screen.search.SearchActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".screen.main.MainActivity"/>
+            android:parentActivityName=".screen.main.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".screen.tracks.TracksActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <service android:name=".service.TrackService" />
     </application>
 </manifest>
